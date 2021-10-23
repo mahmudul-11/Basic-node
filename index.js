@@ -32,9 +32,16 @@ app.get('/users', (req, res) => {
     }
 });
 
-// app.METHOD
+// post.METHOD
 app.post('/users', (req, res) => {
-    console.log(req.body)
+    const newUser = req.body;
+    newUser.id = users.length;
+    users.push(newUser);
+
+    // res.send(JSON.stringify(newUser)) or etar poriborte nicher tau likha jay
+    res.json(newUser)
+
+
 })
 
 // dynamic api
